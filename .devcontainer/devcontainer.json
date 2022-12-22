@@ -12,32 +12,10 @@
         "njpwerner.autodocstring",
         "oderwat.indent-rainbow",
         "almenon.arepl",
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-pg",
-        "ms-python.flake8"
+        "ms-python.flake8",
+        "ktnrg45.vscode-cython"
     ],
     "settings": {
-        "sqltools.connections": [
-            {
-                "name": "Container database",
-                "driver": "PostgreSQL",
-            "previewLimit": 50,
-                "server": "postgres",
-                "port": 5432,
-                "database": "default",
-                "username": "default",
-                "password": "secret"
-            }
-        ],
-        "sqltools.format": {
-            "language": "sql",
-            "indentSize": 2,
-            "reservedWordCase": "upper",
-            "linesBetweenQueries": 1
-        },
-        "[sql]": {
-            "editor.formatOnSave": false
-        },
         "python.linting.enabled": true,
         "python.linting.pylintEnabled": false,
         "python.linting.flake8Enabled": true,

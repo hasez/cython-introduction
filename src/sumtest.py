@@ -1,6 +1,7 @@
+# [Python] 1からnまでの和を求める関数
 def sumtest(n):
     print("Python sumtest.sumtest({}) called".format(n))
-    sum = 0
+    total = 0
     for i in range(1, n + 1):
-        sum += i
-    return sum
+        total += i
+    return total

@@ -11,20 +11,22 @@ ENV TZ JST-9
 ENV TERM xterm
 
 # work user
+# ARG USER_UID=1000
+# ARG USER=app
 ARG USER_UID=1000
-ARG USER=app
-ENV PATH ${PATH}:/home/${USER}/.local/bin
-RUN /usr/sbin/useradd --uid ${USER_UID} --groups sudo ${USER} \
-    && echo "${USER} ALL=NOPASSWD: ALL" >> /etc/sudoers
+ARG USER_GID=1000
+ARG USER_NAME=app
+ENV PATH ${PATH}:/home/${USER_NAME}/.local/bin
+RUN /usr/sbin/useradd --uid ${USER_UID} --groups sudo ${USER_NAME} \
+    && echo "${USER_NAME} ALL=NOPASSWD: ALL" >> /etc/sudoers
 
-ARG HOME_DIR=/home/${USER}
+ARG HOME_DIR=/home/${USER_NAME}
 RUN mkdir -p ${HOME_DIR}/src
 COPY requirements.txt ${HOME_DIR}
-RUN chown -R ${USER}:${USER} ${HOME_DIR}
+RUN chown -R ${USER_NAME}:${USER_NAME} ${HOME_DIR}
 WORKDIR ${HOME_DIR}
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade setuptools
-#RUN pip3 install Cython
 RUN pip3 install -r requirements.txt
 
-USER ${USER}
+USER ${USER_NAME}

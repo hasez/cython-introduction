@@ -1,11 +1,10 @@
 version: '3'
 services:
   cython-introduction:
-    user: "${UID}:${GID}"
     restart: always
     build: .
     container_name: 'cython-introduction'
     working_dir: '/home/app'
     tty: true
     volumes:
-      - ${SRC_PATH}:/home/app/src
+      - ./src:/home/app/src
