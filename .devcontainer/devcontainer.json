@@ -1,0 +1,48 @@
+{
+    "name": "cython-introduction",
+    "dockerComposeFile": "../docker-compose.yml",
+    "shutdownAction": "stopCompose",
+    "service": "cython-introduction",
+    "remoteUser": "app",
+    "workspaceFolder": "/home/app",
+    "extensions": [
+        "ms-ceintl.vscode-language-pack-ja",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "oderwat.indent-rainbow",
+        "almenon.arepl",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "ms-python.flake8"
+    ],
+    "settings": {
+        "sqltools.connections": [
+            {
+                "name": "Container database",
+                "driver": "PostgreSQL",
+            "previewLimit": 50,
+                "server": "postgres",
+                "port": 5432,
+                "database": "default",
+                "username": "default",
+                "password": "secret"
+            }
+        ],
+        "sqltools.format": {
+            "language": "sql",
+            "indentSize": 2,
+            "reservedWordCase": "upper",
+            "linesBetweenQueries": 1
+        },
+        "[sql]": {
+            "editor.formatOnSave": false
+        },
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.linting.lintOnSave": true,
+        "python.formatting.provider": "autopep8",
+        "editor.formatOnSave": true
+    },
+}
